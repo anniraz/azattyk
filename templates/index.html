@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block div %}
+<div class="conteiner">
+<div class="row">
+        {% for news in news_all %}
+        <div class="col-lg-3">
+                <div class="card" style="width: 18rem;">
+                        <img src="{{news.image.url}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                                <h5 class="card-title">{{news.title}}</h5>
+                                <p class="card-text">{{news.description|truncatewords:10}}</p>
+                                <a href="{{ news.get_absolute_url }}" class="btn btn-primary">читать</a>
+                        </div>
+                </div>
+        </div>
+        {% endfor %}
+</div>
+</div>
+
+{% endblock %}
+
